@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+
+    <title>CRUD</title>
+        <style>
+            body{
+                padding-top: 60px;
+                padding-left: 60px;
+            }
+            .tr-head{background: blue;}
+    </style>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.min.css">
+</head>
+<body>
+    <div class="navbar navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/" class="brand">
+                    UTL - IDGS804
+                </a>
+                <ul class="nav">
+                    <li class="activate">
+                        <a href="/">
+                            <i class="icon-home icon-white"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url_for('students.read') }}">
+                            <i class="icon-book icon-white"></i>
+                            Students
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url_for('teachers.read_maestros') }}">
+                            <i class="icon-briefcase icon-white"></i>
+                            Teachers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {%block content%}
+    {%endblock%}
+    </div>
+</body>
+</html>

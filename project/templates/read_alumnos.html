@@ -1,0 +1,40 @@
+{% extends "navbar.html" %}
+
+{% block content %}
+    <h1>STUDENTS</h1>
+    {% from "_macros.html" import render_field %}
+
+    <div class="container">
+        <div class="row">
+            <a href="{{ url_for('students.create') }}" class="btn btn-primary">
+                Agregar <i class="icon-plus-sign icon-white"></i></a>
+            <table class="table table">
+                <thead>
+                    <tr>
+                        <th>NOMBRE(S)</th>
+                        <th>APELLIDOS</th>
+                        <th>CORREO</th>
+                        <th>CARRERA</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for alu in alumnos %}
+                    <tr>
+                        <td>{{alu.nombre}}</td>
+                        <td>{{alu.apaterno}} {{alu.amaterno}}
+                        </td>
+                        <td>{{alu.email}}</td>
+                        <td>{{alu.carrera}}</td>
+                        <td><a href="{{ url_for('students.delete') }}?id={{alu.id}}" class="btn btn-danger">
+                            Eliminar <i class="icon-trash icon-white"></i></a>
+                        <a href="{{ url_for('students.update') }}?id={{alu.id}}" class="btn btn-warning">
+                            Modificar <i class="icon-edit icon-white"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
