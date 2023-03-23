@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from . models import Alumnos
+from project.models import Alumnos
 
-from .forms import AlumnosForm
+from project.forms import AlumnosForm
 
-from . import db 
+from project import db 
 
 students = Blueprint('students', __name__, url_prefix='/students')
 
@@ -52,7 +52,7 @@ def update():
 
         db.session.add(alum)
         db.session.commit()
-        return redirect(url_for('read'))
+        return redirect(url_for('students.read'))
     
     return render_template('update_alumnos.html', form = update_form)
 
@@ -82,6 +82,6 @@ def delete():
         db.session.delete(alum)
         db.session.commit()
         
-        return redirect(url_for('read'))
+        return redirect(url_for('students.read'))
 
     return render_template('delete_alumnos.html', form = delete_form)

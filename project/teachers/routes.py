@@ -1,12 +1,10 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from .models import Maestros
+from project.models import Maestros
 
-from .forms import MaestrosForm
+from project.forms import MaestrosForm
 
-from . import db 
-from .db import get_connection
-
-from .procedures import get_teachers
+from project import db 
+from project.db import get_connection
 
 teachers = Blueprint('teachers', __name__, url_prefix='/teachers')
 

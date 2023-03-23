@@ -24,10 +24,10 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    from .students import students as students_blueprint
+    from .students.rouetes import students as students_blueprint
     app.register_blueprint(students_blueprint)
 
-    from .teachers import teachers as teachers_blueprint
+    from .teachers.routes import teachers as teachers_blueprint
     app.register_blueprint(teachers_blueprint)
 
     return app
